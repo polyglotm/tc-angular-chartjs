@@ -2,11 +2,13 @@ module.exports = function (config) {
   config.set({
 
     basePath: '..',
-
+    
     frameworks: ['jasmine'],
 
+    plugins : ['karma-jasmine', 'karma-phantomjs-launcher'],
+
     files: [
-      'bower_components/Chart.js/Chart.js',
+      'bower_components/Chart.js/dist/Chart.js',
       'bower_components/angular/angular.js',
       'bower_components/angular-mocks/angular-mocks.js',
       'src/tc-angular-chartjs.js',
@@ -17,7 +19,11 @@ module.exports = function (config) {
 
     logLevel: config.LOG_INFO,
 
-    captureTimeout: 60000
+    captureTimeout: 60000,
+    
+    client: {
+      captureConsole: true
+    }
 
   });
 };
